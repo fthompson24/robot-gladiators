@@ -1,19 +1,44 @@
-// var playerName = 'Clank McKrank';
+// Game States
+// "WIN" - Player robot has defeated all enemy-robots
+//    * Fight all enemy-robots
+//    * Defeat each enemy-robot
+// "LOSE" - Player robot's health is zero or less
+
+
+
+// Global Variables
 var playerName = window.prompt("What is your robot's name?");
 var playerHealth = 100;
 var playerAttack = 10;
 var playerMoney = 10;
 
-console.log(playerName);
-console.log(playerHealth, playerAttack, playerMoney);
-console.log("You can put regular sentences in these.");
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Sargent Rust"];
 var enemyHealth = 50;
 var enemyAttack = 12;
 
+// console.log tests
+
+//console.log(playerName);
+//console.log(playerHealth, playerAttack, playerMoney);
+
+//console.log(enemyNames);
+
+//console.log(enemyNames[0]);
+//console.log(enemyNames[1]);
+//console.log(enemyNames[2]);
+//console.log(enemyNames.length);
+
+//for(var i = 0; i < enemyNames.length; i++) {
+//  console.log(enemyNames[i]);
+//  console.log(i);
+//  console.log(enemyNames[i] + " is at " + i + " index");
+//}
+
+
+
 // fight function
-var fight = function() {
+var fight = function(enemyName) {
   // Alert players that they are starting the round
   window.alert("Welcome to Robot Gladiators!");
 
@@ -31,7 +56,8 @@ var fight = function() {
     // check enemy's health
     if (enemyHealth <= 0) {
       window.alert(enemyName + " has died!");
-    } else {
+    } 
+    else {
       window.alert(enemyName + " still has " + enemyHealth + " health left.");
     }
 
@@ -44,7 +70,8 @@ var fight = function() {
     // check player's health
     if (playerHealth <= 0) {
       window.alert(playerName + " has died!");
-    } else {
+    } 
+    else {
       window.alert(playerName + " still has " + playerHealth + " health left.");
     }
     // if player choses to skip
@@ -68,5 +95,6 @@ var fight = function() {
   }
 };
 
-// run fight function to start game
-fight();
+for(var i = 0; i < enemyNames.length; i++) {
+  fight(enemyNames[i]);
+}
